@@ -40,11 +40,37 @@ public class FragmentArgs {
         return this;
     }
 
+    public FragmentArgs setLong(String field, long value) {
+        try {
+            Field f = fragmentClass.getDeclaredField(field);
+            f.setAccessible(true);
+            f.setLong(fragment, value);
+        } catch (NoSuchFieldException e) {
+            e.printStackTrace();
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        }
+        return this;
+    }
+
     public FragmentArgs setDouble(String field, double value) {
         try {
             Field f = fragmentClass.getDeclaredField(field);
             f.setAccessible(true);
             f.setDouble(fragment, value);
+        } catch (NoSuchFieldException e) {
+            e.printStackTrace();
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        }
+        return this;
+    }
+
+    public FragmentArgs setFloat(String field, float value) {
+        try {
+            Field f = fragmentClass.getDeclaredField(field);
+            f.setAccessible(true);
+            f.setFloat(fragment, value);
         } catch (NoSuchFieldException e) {
             e.printStackTrace();
         } catch (IllegalAccessException e) {
